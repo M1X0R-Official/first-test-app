@@ -7,5 +7,5 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./index.html:/usr/share/nginx/html/index.html:ro   # اتصال فایل
+      - ./index.html:/usr/share/nginx/html/index.html:ro   # اتصال فایل index.html به دایرکتوری در داخل کانتینر
     restart: always
