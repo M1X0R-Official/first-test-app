@@ -1,8 +1,12 @@
 services:
   app:
-    build: .
+    image: registry.docker.ir/node:18-alpine
+    working_dir: /usr/src/app
     ports:
       - "8080:3001"
     volumes:
-      - ./app/public:/usr/src/app/public
+      - ./app:/usr/src/app
+    command: sh -c "npm install && node server.js"
+    environment:
+      - NODE_ENV=production
     restart: unless-stopped
