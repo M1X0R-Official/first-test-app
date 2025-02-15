@@ -1,13 +1,13 @@
-FROM node:alpine
+FROM node:18-alpine
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
-COPY package.json .
-COPY server.js .
-COPY public ./public
+COPY app/package.json ./
+COPY app/server.js ./
+COPY app/public ./public
 
 RUN npm install
 
-EXPOSE 3000
+EXPOSE 3001
 
 CMD ["node", "server.js"]
