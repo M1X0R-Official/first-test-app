@@ -1,5 +1,7 @@
 {
   "name": "static-server",
+  "main": "server.js",
+
   "dependencies": {
     "express": "^4.17.1"
   }
