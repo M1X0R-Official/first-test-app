@@ -1,10 +1,8 @@
 services:
   app:
-    image: node:alpine
-    working_dir: /app
+    build: .
     ports:
-      - "8080:3000"
+      - "8080:3001"
     volumes:
-      - ./app:/app
-    command: >
-      sh -c "npm install express && node server.js"
+      - ./app/public:/usr/src/app/public
+    restart: unless-stopped
