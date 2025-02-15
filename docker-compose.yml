@@ -4,15 +4,5 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - web-content:/usr/share/nginx/html
+      - /:usr/share/nginx/html
     restart: unless-stopped
-
-  init:
-    image: alpine/git
-    volumes:
-      - web-content:/app
-    command: clone https://github.com/M1X0R-Official/first-test-app /app
-    restart: "no"
-
-volumes:
-  web-content:
