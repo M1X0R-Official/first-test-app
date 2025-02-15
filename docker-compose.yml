@@ -1,7 +1,7 @@
 services:
   app:
     image: node:alpine
-    working_dir: /app
+    working_dir: /
     ports:
       - "8080:3000"
     volumes:
