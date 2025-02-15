@@ -1,0 +1,6 @@
+echo '{
+  "name": "static-server",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}' > package.json
