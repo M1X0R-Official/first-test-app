@@ -1,10 +1,9 @@
-version: '3.8'
-
+version: '3'
 services:
   web:
     image: nginx:alpine
-    container_name: static_website
     ports:
-      - "8080:80"
+      - "8080:80"  # تغییر پورت از 80 به 8080
     volumes:
-      - ./index.html:/usr/share/nginx/html/index.html
+      - ./:/usr/share/nginx/html  # مسیر فایل‌های استاتیک
+    restart: unless-stopped
