@@ -5,9 +5,7 @@ services:
     image: nginx:alpine
     container_name: static_website
     ports:
-      - "5442:5442"
+      - "8080:80"  # تغییر پورت از 80 به 8080
     volumes:
-      - ./index.html:/usr/share/nginx/html/index.html
-      - ./styles:/usr/share/nginx/html/styles
-      - ./scripts:/usr/share/nginx/html/scripts
+      - ./index.html:/usr/share/nginx/html/index.html:ro
     restart: always
