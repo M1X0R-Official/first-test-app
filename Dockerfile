@@ -8,13 +8,13 @@ WORKDIR /app
 COPY package*.json ./
 
 # نصب وابستگی‌ها
-RUN npm install --production
+RUN npm install -f
 
 # کپی کل پروژه به کانتینر
 COPY . .
 
 # مشخص کردن پورت اجرا
-EXPOSE 3000
+EXPOSE 2443
 
 # اجرای دستور پیش‌فرض
 CMD ["npm", "start"]
