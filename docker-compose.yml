@@ -8,7 +8,8 @@ services:
     ports:
       - "2443:80"
     volumes:
-      - ./html:/srv
+      - ./html:/usr/share/caddy
+      - ./Caddyfile:/etc/caddy/Caddyfile
     deploy:
       resources:
         limits:
