@@ -6,6 +6,8 @@ services:
     container_name: expressjs-html-app
     environment:
       - NODE_ENV=production
+    ports:
+      - "2443:2443"    # اضافه کردن این خط
     volumes:
       - .:/app
       - /app/node_modules
