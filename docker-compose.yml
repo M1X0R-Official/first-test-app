@@ -1,16 +1,12 @@
+version: '3.8'
 
 services:
   app:
-    container_name: static-server
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     ports:
-      - "2443:2443"  # پورت‌های کانتینر را به سیستم میزبان متصل می‌کند
+      - "2443:2443"
     volumes:
-      - ./app:/app  # پوشه پروژه را به کانتینر متصل می‌کند (اگر نیاز است)
-    working_dir: /app  # تنظیم پوشه کاری در داخل کانتینر
-    command: ["npm", "start"]  # دستور برای اجرای سرور
-    restart: unless-stopped  # ری‌استارت خودکار در صورت توقف
+      - .:/app
+      - /app/node_modules
     environment:
-      NODE_ENV: production  # تنظیم محیط کاری به صورت تولیدی
+      - NODE_ENV=development
