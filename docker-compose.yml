@@ -5,11 +5,11 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "2443:2443" # نقشه‌برداری پورت
+      - "2443:2443"
     volumes:
-      - ./app:/app
+      - .:/app
     working_dir: /app
-    command: ["npm", "start"] # اجرای سرور
+    command: ["npm", "start"]
     restart: unless-stopped
     environment:
       NODE_ENV: production
