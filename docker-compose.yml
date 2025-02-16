@@ -8,7 +8,7 @@ services:
       - "2443:2443" # نقشه‌برداری پورت
     volumes:
       - .:/app
-    working_dir: ./app
+    working_dir: /app
     command: ["npm", "start"] # اجرای سرور
     restart: unless-stopped
     environment:
