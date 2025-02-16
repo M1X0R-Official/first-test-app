@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 2443
 
-CMD ["node", "server.js"]
+CMD ["node", "server.cjs"]
