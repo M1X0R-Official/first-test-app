@@ -2,13 +2,16 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Add package files
+# نصب dependencies مورد نیاز
+RUN apk add --no-cache python3 make g++
+
+# کپی فایل‌های package
 COPY package*.json ./
 
-# Install dependencies using clean npm install
-RUN npm clean-install
+# تنظیم npm registry و نصب پکیج‌ها
+RUN npm config set registry https://registry.npmjs.org/ && \
+    npm install
 
-# Copy app source
 COPY . .
 
 EXPOSE 2443
