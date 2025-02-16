@@ -1,10 +1,15 @@
 services:
   app:
-    build: .
+    container_name: static-server
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - "2443:2443"
+      - "2443:2443" # نقشه‌برداری پورت
     volumes:
       - .:/app
-      - /app/node_modules
+    working_dir: /app
+    command: ["npm", "start"] # اجرای سرور
+    restart: unless-stopped
     environment:
-      - NODE_ENV=development
+      NODE_ENV: production
