@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "2443:3000" # مپ کردن پورت کانتینر با پورت سیستم میزبان
+      - "2443:2443" # مپ کردن پورت کانتینر با پورت سیستم میزبان
     volumes:
       - ./app:/app # سینک کردن پوشه پروژه
     working_dir: /app
