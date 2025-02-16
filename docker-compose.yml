@@ -1,16 +1,16 @@
 
 services:
   app:
-    container_name: my-app
+    container_name: static-server
     build:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "2443:3000" # تغییر به پورتی که سرور شما روی آن اجرا می‌شود
+      - "2443:3000" # مپ کردن پورت کانتینر با پورت سیستم میزبان
     volumes:
-      - ./app:/app # سینک کردن پوشه `app` در سیستم میزبان با کانتینر
+      - ./app:/app # سینک کردن پوشه پروژه
     working_dir: /app
-    command: ["node", "server.js"]
+    command: ["npm", "start"] # اجرای سرور
+    restart: unless-stopped
     environment:
-      NODE_ENV: development
-    restart: always
+      NODE_ENV: production
