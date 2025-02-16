@@ -2,7 +2,7 @@
 FROM node:18-alpine
 
 # تنظیم مسیر کاری
-WORKDIR /app
+WORKDIR ./app
 
 # کپی کردن فایل‌های package.json و package-lock.json
 COPY package*.json ./
