@@ -1,11 +1,17 @@
+version: '3.9'
+
 services:
-  webserver:
-    image: node:alpine
-    container_name: static_web
-    working_dir: /app
+  app:
+    container_name: my-app
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
-      - "2443:3000"
+      - "3000:3000" # تغییر به پورتی که سرور شما روی آن اجرا می‌شود
     volumes:
-      - ./app:/app
+      - ./app:/app # سینک کردن پوشه `app` در سیستم میزبان با کانتینر
+    working_dir: /app
     command: ["node", "server.js"]
-    restart: unless-stopped
+    environment:
+      NODE_ENV: development
+    restart: always
