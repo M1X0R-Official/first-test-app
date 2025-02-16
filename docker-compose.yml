@@ -1,15 +1,13 @@
+version: '3.8'
 services:
-  app:
-    container_name: static-server
+  nodejs-app:
     build:
       context: .
       dockerfile: Dockerfile
-    ports:
-      - "2443:2443"
+    container_name: expressjs-html-app
+    environment:
+      - NODE_ENV=production
     volumes:
       - .:/app
-    working_dir: /app
-    command: ["npm", "start"]
+      - /app/node_modules
     restart: unless-stopped
-    environment:
-      NODE_ENV: production
