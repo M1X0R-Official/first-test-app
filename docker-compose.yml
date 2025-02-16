@@ -8,8 +8,9 @@ services:
     ports:
       - "2443:2443"
     volumes:
-      - ./html:/usr/share/nginx/html
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - /home/user/project/html:/usr/share/nginx/html
+      - /home/user/project/nginx.conf:/etc/nginx/nginx.conf:ro
+
     deploy:
       resources:
         limits:
