@@ -1,13 +1,20 @@
+# استفاده از تصویر Node.js بهینه‌شده
 FROM node:18-alpine
 
-WORKDIR /usr/src/app
+# تنظیم مسیر کاری در کانتینر
+WORKDIR /app
 
-COPY app/package.json ./
-COPY app/server.js ./
-COPY app/public ./public
+# کپی کردن فایل‌های package.json و package-lock.json
+COPY package*.json ./
 
+# نصب وابستگی‌ها
 RUN npm install
 
-EXPOSE 3001
+# کپی کل پروژه به کانتینر
+COPY . .
 
+# مشخص کردن پورت برای اجرا
+EXPOSE 3000
+
+# اجرای سرور
 CMD ["node", "server.js"]
