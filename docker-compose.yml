@@ -2,14 +2,13 @@ version: '3'
 
 services:
   webserver:
-    image: caddy:2-alpine
+    image: nginx:alpine
     container_name: static_web
     restart: unless-stopped
     ports:
       - "2443:80"
     volumes:
-      - ./html:/usr/share/caddy
-    command: ["caddy", "run", "--config", "/etc/caddy/Caddyfile"]
+      - ./html:/usr/share/nginx/html
     deploy:
       resources:
         limits:
