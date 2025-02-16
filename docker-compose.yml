@@ -1,3 +1,4 @@
+version: '3'
 
 services:
   webserver:
@@ -8,14 +9,7 @@ services:
       - "2443:80"
     volumes:
       - ./html:/usr/share/caddy
-    command: caddy run --config /etc/caddy/Caddyfile
-    environment:
-      - CADDY_CONTENT: |
-        :80 {
-            root * /usr/share/caddy
-            file_server
-            encode gzip
-        }
+    command: ["caddy", "run", "--config", "/etc/caddy/Caddyfile"]
     deploy:
       resources:
         limits:
