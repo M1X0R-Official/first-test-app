@@ -2,10 +2,13 @@ FROM node:18-alpine
 
 WORKDIR /app
 
+# Add package files
 COPY package*.json ./
 
-RUN npm install
+# Install dependencies using clean npm install
+RUN npm clean-install
 
+# Copy app source
 COPY . .
 
 EXPOSE 2443
