@@ -1,12 +1,15 @@
+version: '3'
+
 services:
-  app:
-    image: registry.docker.ir/node:18-alpine
-    working_dir: /app
-    ports:
-      - "8080:3001"
-    volumes:
-      - ./app:/app
-    command: sh -c "npm install && node server.js"
-    environment:
-      - NODE_ENV=production
+  webserver:
+    image: caddy:2-alpine
+    container_name: static_web
     restart: unless-stopped
+    ports:
+      - "2443:80"
+    volumes:
+      - ./html:/usr/share/caddy
+    resources:
+      limits:
+        memory: 512M
+        cpus: '0.5'
