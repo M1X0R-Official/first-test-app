@@ -4,11 +4,12 @@ FROM node:18-alpine
 # تنظیم مسیر کاری
 WORKDIR /app
 
-# کپی کردن فایل‌های package.json و package-lock.json
+# کپی فایل‌های package.json و package-lock.json
 COPY package*.json ./
 
-# نصب وابستگی‌ها
-RUN npm install --production --force
+# نصب وابستگی‌ها (بدون `npm cache clean`)
+RUN npm install --production --force || \
+  (echo "Retrying npm install without force flag" && npm install --production)
 
 # کپی کل پروژه به کانتینر
 COPY . .
