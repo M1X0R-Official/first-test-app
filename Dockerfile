@@ -1,20 +1,20 @@
-# استفاده از تصویر Node.js بهینه‌شده
+# استفاده از نسخه پایدار Node.js
 FROM node:18-alpine
 
-# تنظیم مسیر کاری در کانتینر
+# تنظیم مسیر کاری
 WORKDIR /app
 
 # کپی کردن فایل‌های package.json و package-lock.json
 COPY package*.json ./
 
 # نصب وابستگی‌ها
-RUN npm install
+RUN npm install --production
 
 # کپی کل پروژه به کانتینر
 COPY . .
 
-# مشخص کردن پورت برای اجرا
+# مشخص کردن پورت اجرا
 EXPOSE 3000
 
-# اجرای سرور
-CMD ["node", "server.js"]
+# اجرای دستور پیش‌فرض
+CMD ["npm", "start"]
