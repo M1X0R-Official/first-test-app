@@ -7,8 +7,8 @@ WORKDIR /app
 # کپی کردن فایل‌های package.json و package-lock.json به داخل کانتینر
 COPY package*.json ./
 
-# نصب وابستگی‌ها (برای تولید)
-RUN npm install --production --frozen-lockfile
+# پاک‌سازی کش NPM و نصب وابستگی‌ها
+RUN npm cache clean --force && npm install --production --frozen-lockfile --verbose
 
 # کپی کردن تمامی فایل‌ها به داخل کانتینر
 COPY . .
