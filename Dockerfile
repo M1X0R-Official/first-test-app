@@ -7,8 +7,11 @@ WORKDIR /app
 # کپی کردن فایل‌های package.json و package-lock.json
 COPY package*.json ./
 
+# پاک کردن کش npm
+RUN npm cache clean --force
+
 # نصب وابستگی‌ها
-RUN npm install -f
+RUN npm install --production --force
 
 # کپی کل پروژه به کانتینر
 COPY . .
