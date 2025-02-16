@@ -2,13 +2,13 @@
 FROM node:18-alpine
 
 # تنظیم مسیر کاری
-WORKDIR ./app
+WORKDIR /app
 
 # کپی کردن فایل‌های package.json و package-lock.json
 COPY package*.json ./
 
-# پاک‌سازی کش و نصب وابستگی‌ها
-RUN npm cache clean --force && npm install --production --force
+# نصب وابستگی‌ها
+RUN npm install --production --force
 
 # کپی کل پروژه به کانتینر
 COPY . .
